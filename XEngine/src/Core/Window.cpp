@@ -1,5 +1,6 @@
 #include <glad/glad.h>
 #include "Window.h"
+#include "Input.h"
 #include <stdexcept>
 
 Window::Window(int width, int height, const std::string& title)
@@ -23,6 +24,8 @@ Window::Window(int width, int height, const std::string& title)
 		glfwTerminate();
 		throw std::runtime_error("Failed to initialize GLAD");
 	}
+
+	Input::SetWindow(m_Window);
 }
 
 Window::~Window() {
